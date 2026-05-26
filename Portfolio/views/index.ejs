@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/floatingBG.css">
+    <title>Matthias van Hogerhuis</title>
+</head>
+<body>
+    <div class="floating-bg">
+    <% 
+        const iconCount = 75;
+        const techIcons = [
+            'JS' ,
+            'C#',
+            '⚛',
+            'Py',
+            'TS',
+            'C++',
+            '☕',
+            'HTML'
+        ];
+
+        for (let i = 0; i < iconCount; i++) {
+            let randomIndex = Math.floor(Math.random() * techIcons.length);
+            let icon = techIcons[randomIndex];
+            let baseTop = (i / iconCount) * 80 + 10; 
+            let variation = (Math.random() * 6) - 3; 
+            let randomTop = Math.max(2, Math.min(98, baseTop + variation)); 
+            let randomRight = Math.floor(Math.random() * 96) + 2; 
+    %>
+        <div class="icon" style="top: <%= randomTop %>%; right: <%= randomRight %>%;">
+            <%= icon %>
+        </div>
+    <% } %>
+    </div>
+
+    <header>
+        <div class="logo">Matthias van Hogerhuis</div>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#">About me</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <h1>Creative design meets <span>clean code</span>.</h1>
+        <p>
+            With a passion for clean architecture and modern design, I develop scalable web applications.<br>
+            My code follows a clear structure, ensuring systems are ready for the future.
+        </p>
+        <div>
+            <a href="#projects" class="btn">Notable Projects</a>
+            <a href="#" class="btn btn-outline">Get in touch</a>
+        </div>
+    </main>
+
+    <section class="projects" id="projects">
+        <h2>Notable projects</h2>
+        <div class="project-grid">
+            <%if (projects.length > 0){%>
+                <%for(let project of projects){%>
+                    <div class="card">
+                        <span class="card-tag"><%=project.category%></span>
+                        <h3><%=project.name%></h3>
+                        <div class="card-languages">
+                            <%for(let language of project.languages){%>
+                                <span><%=language%></span>    
+                            <%}%>
+                        </div>
+                        <p><%=project.description%></p>
+                        <a href="/projectDetails/<%=project.id%>" style="color: var(--accent-pink); text-decoration: none; font-size: 0.9rem;">Read More &rarr;</a>
+                    </div>
+                <%}%>
+            <%}%>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Palette Test Website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
