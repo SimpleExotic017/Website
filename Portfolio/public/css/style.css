@@ -27,7 +27,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 5%;
+    padding: 1.5rem 5%;
     border-bottom: 1px solid var(--muted-blue);
 }
 
@@ -46,4 +46,20 @@ nav a {
 
 nav a:hover, nav a.active {
     color: var(--accent-pink); 
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    
+    transform: translateY(0px); 
+    background-color: var(--bg-dark);
+}
+
+footer{
+    background-color: var(--bg-dark);
 }
