@@ -1,11 +1,8 @@
-/* ==========================================================================
-   ABOUT ME SECTION
-   ========================================================================== */
-
 .about {
-    scroll-margin-top: 10vh;
-    max-width: 1200px;
-    margin: 0 auto;
+    scroll-margin-top: 25vh;
+    margin-top: 5vh;
+    max-width: 1300px;
+    margin: 0 auto 15vh auto;
     padding: 4rem 5%;
 }
 
@@ -21,10 +18,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 4rem;
-    align-items: center; /* Zorgt dat content en foto mooi gecentreerd staan t.o.v. elkaar */
+    align-items: center; 
 }
 
-/* Visuele kolom */
 .about-visual {
     flex: 1;
     min-width: 300px;
@@ -44,13 +40,11 @@
     transition: transform 0.3s, border-color 0.3s;
 }
 
-/* Subtiele hover-vibe net als bij je projecten */
 .profile-frame:hover {
     transform: translateY(-5px);
     border-color: var(--light-blue);
 }
 
-/* Voorlopige placeholder voor je foto */
 .profile-placeholder {
     width: 100%;
     height: 100%;
@@ -69,7 +63,6 @@
     font-weight: bold;
 }
 
-/* Content kolom */
 .about-content {
     flex: 1.5;
     min-width: 300px;
@@ -88,7 +81,6 @@
     margin-bottom: 1.5rem;
 }
 
-/* Skills subsectie */
 .about-skills h4 {
     color: var(--text-light);
     font-size: 1.1rem;
@@ -101,13 +93,12 @@
     gap: 0.6rem;
 }
 
-/* Hergebruik van de toffe tag-stijl van je projecten */
 .skills-grid span {
     font-size: 0.85rem;
     background-color: var(--bg-card);
     color: var(--text-light);
     padding: 0.4rem 1rem;
-    border-radius: 20px; /* Iets ronder voor een 'pill' look */
+    border-radius: 20px; 
     border: 1px solid var(--muted-blue);
     font-weight: 500;
     transition: border-color 0.2s, color 0.2s;
@@ -116,4 +107,48 @@
 .skills-grid span:hover {
     border-color: var(--accent-pink);
     color: var(--accent-pink);
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        scroll-margin-top: 10vh;
+        padding: 3rem 5%;
+    }
+
+    .about h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-container {
+        gap: 2rem;
+        flex-direction: column;
+    }
+
+    .about-visual,
+    .about-content {
+        min-width: 100%;
+    }
+
+    .profile-frame {
+        max-width: 280px;
+    }
+
+    .about-content h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .about-skills h4 {
+        text-align: center;
+    }
+
+    .skills-grid {
+        justify-content: center;
+    }
 }

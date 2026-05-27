@@ -1,6 +1,6 @@
 .hero {
     scroll-margin-top: 100vh;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 15vh auto 9vh auto;
     padding: 6rem 5%;
     display: flex;
@@ -56,9 +56,9 @@
 }
 
 .projects {
-    scroll-margin-top: 10vh;
-    max-width: 1200px;
-    margin: 0vh auto 11vh auto;
+    scroll-margin-top: 20vh;
+    max-width: 1300px;
+    margin: 0vh auto 15vh auto;
     padding: 4rem 5%;
 }
 
@@ -72,7 +72,8 @@
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    grid-template-columns: minmax(300px,1fr) minmax(300px,1fr) minmax(300px,1fr);
     gap: 2rem;
 }
 
@@ -82,7 +83,6 @@
     padding: 2rem;
     border: 1px solid var(--muted-blue);
     transition: transform 0.3s;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -111,7 +111,6 @@
     color: var(--light-blue);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
-
     flex-grow: 1;
 }
 
@@ -123,6 +122,7 @@ footer {
     color: var(--muted-blue);
     font-size: 0.9rem;
 }
+
 .card-languages {
     display: flex;
     flex-wrap: wrap;
@@ -139,23 +139,88 @@ footer {
     border: 1px solid var(--muted-blue); 
     font-weight: 500;
 }
+
 .projects-action {
     display: flex;
     justify-content: center;
-    margin-top: 3rem; /* Zorgt voor een mooie afstand tussen de grid en de knop */
+    margin-top: 3rem; 
 }
 
-/* Optioneel: Zorgt dat de knop op zichzelf gecentreerd staat zonder margin-left van de hero variant */
 .projects-action .btn-outline {
     margin-left: 0;
 }
+
 nav a {
-    color: var(--light-blue); /* Of je standaard link kleur */
+    color: var(--light-blue); 
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 nav a:hover,
 nav a.active {
-    color: var(--accent-pink); /* Licht nu roze op als de sectie actief is of bij een hover */
+    color: var(--accent-pink); 
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        margin: 10vh auto 4vh auto;
+        scroll-margin-top: 100vh;
+        padding: 4rem 5%;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin: 0 auto 2rem auto;
+    }
+
+    .hero div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .btn-outline {
+        margin-left: 0;
+    }
+
+    .projects {
+        margin: 0vh auto 4vh auto;
+        padding: 3rem 5%;
+        scroll-margin-top: 10vh;
+    }
+
+    .projects h2 {
+        font-size: 1.6rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .projects-action {
+        margin-top: 2rem;
+    }
+
+    footer {
+        padding: 3rem 0;
+        margin-top: 2rem;
+    }
 }
