@@ -81,7 +81,6 @@
 
 @media screen and (max-width: 768px) {
     .contact {
-        background-color: var(--light-blue);
         scroll-margin-top: 5vh;
         padding: 3rem 1rem;
     }
@@ -92,6 +91,7 @@
     }
 
     .contact-container {
+        background-color: var(--light-blue);
         padding: 1.5rem;
         gap: 2rem;
         flex-direction: column;
