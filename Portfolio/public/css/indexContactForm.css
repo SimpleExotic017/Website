@@ -91,7 +91,7 @@
     }
 
     .contact-container {
-        background-color: var(--muted-blue);
+        background-color: var(--bg-card);
         padding: 1.5rem;
         gap: 2rem;
         flex-direction: column;
