@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20
 WORKDIR /app
 
 # 1. Kopieer de package-bestanden specifiek UIT de portfolio map
