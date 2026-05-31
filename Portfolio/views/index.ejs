@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/indexFloatingBG.css">
+    <link rel="stylesheet" href="/css/indexContactForm.css">
+    <link rel="stylesheet" href="/css/indexAboutMe.css">
+    <script type="module" src="/js/index.js"></script>
+    <title>Matthias van Hogerhuis</title>
+</head>
+<body>
+    <div class="floating-bg">
+    <% 
+        const iconCount = 40;
+        const techIcons = [
+            'JS' ,
+            'C#',
+            '⚛',
+            'Py',
+            'TS',
+            'C++',
+            '☕',
+            'HTML',
+            'Java'
+        ];
+
+        for (let i = 0; i < iconCount; i++) {
+            let icon = techIcons[i % techIcons.length];
+            let baseTop = (i / iconCount) * 85 + 5; 
+            let variation = (Math.random() * 6) - 3; 
+            let randomTop = Math.max(2, Math.min(98, baseTop + variation)); 
+            let randomRight = Math.floor(Math.random() * 96) + 2; 
+    %>
+        <div class="icon" style="top: <%= randomTop %>%; right: <%= randomRight %>%;">
+            <%= icon %>
+        </div>
+    <% } %>
+    </div>
+
+    <header>
+        <div class="logo">Matthias van Hogerhuis</div>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#aboutme">About me</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="hero" id="home">
+        <h1>Creative design meets <span>clean code</span>.</h1>
+        <p>
+            With a passion for clean architecture and modern design, I develop scalable web applications.<br>
+            My code follows a clear structure, ensuring systems are ready for the future.
+        </p>
+        <div>
+            <a href="#projects" class="btn">Notable Projects</a>
+            <a href="#contact" class="btn btn-outline">Get in touch</a>
+        </div>
+    </main>
+
+    <section class="projects" id="projects">
+        <h2>Notable projects</h2>
+        <div class="project-grid">
+            <%if (projects.length > 0){%>
+                <%for(let project of projects){%>
+                    <div class="card">
+                        <span class="card-tag"><%=project.category%></span>
+                        <h3><%=project.name%></h3>
+                        <div class="card-languages">
+                            <%for(let language of project.languages){%>
+                                <span><%=language%></span>    
+                            <%}%>
+                        </div>
+                        <p><%=project.description%></p>
+                        <a href="/projectDetails/<%=project.id%>" style="color: var(--accent-pink); text-decoration: none; font-size: 0.9rem;">Read More &rarr;</a>
+                    </div>
+                <%}%>
+            <%}%>
+        </div>
+
+        <div class="projects-action">
+            <a href="/all-projects" class="btn btn-outline">View More Projects &rarr;</a>
+        </div>
+    </section>
+    <section class="about" id="aboutme">
+        <h2>About me</h2>
+        <div class="about-container">
+            <div class="about-visual">
+                <div class="profile-frame">
+                    <div class="profile-placeholder">
+                        <span>&lt;MvH /&gt;</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <h3>Driven by Logic, Crafted with Passion</h3>
+                <p>
+                    Hey! I'm Matthias. My passion lies at the intersection of creative design and rock-solid back-end logic. 
+                    What started as a curiosity about how software works has evolved into a full-stack journey where I 
+                    daily combine clean architecture with modern interfaces.
+                </p>
+                <p>
+                    Whether it's optimizing a database in C# or smoothly animating a front-end with TypeScript; 
+                    I ensure that the code under the hood is just as sleek as the design on the outside.
+                </p>
+
+                <div class="about-skills">
+                    <h4>Core Stack:</h4>
+                    <div class="skills-grid">
+                        <span>Full-Stack Development</span>
+                        <span>Clean Architecture</span>
+                        <span>UI/UX Design</span>
+                        <span>Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Feel free to reach out! You can send a message directly through the form, or drop an email manually.</p>
+                <p class="email-display">
+                    <strong>Email:</strong> <a href="mailto:matthias@example.com">matthiasvanhogerhuis017@gmail.com</a>
+                </p>
+            </div>
+
+            <form action="/send-email" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="subject">Reason for contacting:</label>
+                    <select name="subject" id="subject" required>
+                        <option value="" disabled selected>Select an option...</option>
+                        <option value="Project Collaboration">Project Collaboration</option>
+                        <option value="Job Opportunity">Job Opportunity</option>
+                        <option value="Question / Feedback">Question / Feedback</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" name="email" id="email" placeholder="example@domain.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" rows="6" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2026 Palette Test Website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
