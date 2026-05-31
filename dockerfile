@@ -11,4 +11,4 @@ RUN npm install --production
 COPY Portfolio/ .
 
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["node", "index.ts"]
