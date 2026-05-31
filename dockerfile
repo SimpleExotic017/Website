@@ -6,7 +6,7 @@ COPY Portfolio/package*.json ./
 
 # 2. Voer de installatie uit in de /app map van de container
 RUN npm install --production
-RUN npm initialise
+RUN npm i --save-dev @types/express
 # 3. Kopieer de rest van de portfolio bestanden naar de container
 COPY Portfolio/ .
 
