@@ -11,4 +11,4 @@ RUN npm initialise
 COPY Portfolio/ .
 
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npx", "ts-node" , "index.ts"]
