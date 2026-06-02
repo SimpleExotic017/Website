@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     
                     navLinks.forEach(link => link.classList.remove('active'));
                     
-                    const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+                    const activeLink = document.querySelector(`nav a[href="/#${id}"]`);
                     if (activeLink) {
                         activeLink.classList.add('active');
                     }

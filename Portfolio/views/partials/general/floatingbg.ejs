@@ -1,4 +1,5 @@
-html, body {
+<style>
+    html, body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -82,3 +83,31 @@ body {
         display: none;
     }
 }
+</style>
+<div class="floating-bg">
+    <% 
+        const iconCount = 40;
+        const techIcons = [
+            'JS' ,
+            'C#',
+            '⚛',
+            'Py',
+            'TS',
+            'C++',
+            '☕',
+            'HTML',
+            'Java'
+        ];
+
+        for (let i = 0; i < iconCount; i++) {
+            let icon = techIcons[i % techIcons.length];
+            let baseTop = (i / iconCount) * 85 + 5; 
+            let variation = (Math.random() * 6) - 3; 
+            let randomTop = Math.max(2, Math.min(98, baseTop + variation)); 
+            let randomRight = Math.floor(Math.random() * 96) + 2; 
+    %>
+        <div class="icon" style="top: <%= randomTop %>%; right: <%= randomRight %>%;">
+            <%= icon %>
+        </div>
+    <% } %>
+    </div>

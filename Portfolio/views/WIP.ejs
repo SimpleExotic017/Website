@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Work in Progress</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        display: flex;
+        flex-direction: column; /* Zet header, container en footer ONDER elkaar */
+        min-height: 100vh;
+    }
+
+    /* Nieuwe wrapper om de WIP-kaart perfect te centreren tussen header en footer */
+    .wip-main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1; /* Duwt de footer naar de absolute bodem van het scherm */
+        padding: 40px 20px;
+    }
+
+    .wip-container {
+        background-color: var(--bg-card);
+        padding: 2.5rem;
+        border-radius: 12px;
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(116, 140, 171, 0.1);
+        z-index: 1;
+    }
+
+    .hammer {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    h1 {
+        color: var(--accent-pink);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    p {
+        color: var(--light-blue);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: transparent;
+        color: var(--accent-pink);
+        border: 2px solid var(--accent-pink);
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: var(--accent-pink);
+        color: var(--bg-dark);
+        box-shadow: 0 0 15px rgba(255, 218, 233, 0.4);
+        transform: translateY(-2px);
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 480px) {
+        .wip-main {
+            padding: 20px 15px;
+        }
+
+        .wip-container {
+            padding: 1.75rem;
+        }
+
+        .hammer {
+            font-size: 2.8rem;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+        }
+    }
+</style>
+<body>
+    <%- include("partials/general/floatingbg")%>
+    <%- include("partials/general/header")%>
+    
+    <main class="wip-main">
+        <div class="wip-container">
+            <div class="hammer">🛠️</div>
+            <h1>Under Construction</h1>
+            <p>Oh no! Seems you got here early, this page is still under construction</p>
+            <a href="/" class="btn">Return to home</a>
+        </div>
+    </main>
+
+    <%- include("partials/general/footer")%>
+</body>
+</html>

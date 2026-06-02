@@ -2,6 +2,7 @@ import express, { Express } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import {indexRouter} from "./routers/indexRouter";
+import { WIPRouter } from "./routers/WIPRouter";
 
 dotenv.config();
 
@@ -17,7 +18,12 @@ app.set('views', path.join(__dirname, "views"));
 app.set("port", process.env.PORT || 3000);
 
 async function startServer() {
-    await app.use("/", await indexRouter());
+    app.use("/WIP", await WIPRouter())
+    app.use("/", await indexRouter());
+
+    app.use((req, res, next) => {
+        res.status(404).render('wip'); 
+    });
 }
 
 startServer();
