@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("partials/general/default")%>
+    <link rel="stylesheet" href="/css/projects.css">
+    <title>Home</title>
+</head>
+<body>
+    <%- include("partials/general/floatingbg")%>
+    <%- include("partials/general/header")%>
+        <section class="portfolio-container">
+            <h2>Geselecteerd Werk & Visie</h2>
+            <div class="portfolio-grid">
+<% 
+let multNumber = 2;
+let plusNumber = 3;
+let projectArrayId = 0;
+
+for (let i = 1; i <= 20; i++) {
+    
+    if (((multNumber * i) + plusNumber) % 5 <= 1) {
+        
+        if (i % 2 == 0) { 
+            let randomIndex = Math.floor(Math.random() * featureStatements.length);
+            let randomStatement = featureStatements[randomIndex];
+        %>
+            <div class="feature-statement">
+                <p><%= randomStatement %></p>
+            </div>
+        <% } else { 
+            let randomIndex = Math.floor(Math.random() * featureQuotes.length);
+            let randomQuote = featureQuotes[randomIndex];
+        %>
+            <div class="feature-quote">
+                <p><%= randomQuote %></p>
+            </div>
+        <% }
+        
+    } else { %>
+        <div class="project-card">
+            <img src="https://cataas.com/cat?unique_id=<%= i %>" alt="Project placeholder" class="project-image" loading="lazy">
+            
+            <div class="project-info">
+                <h3>Project <%= projectArrayId +1 %></h3>
+                <p>UI/UX Design & Development</p>
+            </div>
+        </div>
+    <% projectArrayId++;}
+} 
+%>
+            </div>
+        </section>
+    <%- include("partials/general/footer")%>
+</body>
+</html>

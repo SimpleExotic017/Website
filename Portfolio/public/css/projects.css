@@ -1,0 +1,227 @@
+:root {
+    --bg-dark: #0D1321;
+    --bg-card: #1D2D44;
+    --muted-blue: #3E5C76;
+    --light-blue: #748CAB;
+    --accent-pink: #FFDAE9;
+    --text-light: #F4F6F9;
+    --header-size: 5rem;
+    --header-phone-size: 8rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    border-bottom: 1px solid var(--muted-blue);
+    position: fixed;
+    top: 0;
+    height: var(--header-size);
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    transform: translateY(0px); 
+    background-color: var(--bg-dark);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-pink);
+}
+
+nav a {
+    color: var(--light-blue);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-pink); 
+}
+
+footer {
+    background-color: var(--bg-dark);
+}
+
+.portfolio-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: calc(var(--header-size) + 3rem) 5% 5rem 5%;
+}
+
+.portfolio-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--muted-blue);
+    border-radius: 12px;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    min-height: 310px; 
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--light-blue);
+    box-shadow: 0 12px 24px rgba(13, 19, 33, 0.6);
+}
+
+.project-image {
+    width: 100%;
+    height: 170px; 
+    min-height: 170px; 
+    object-fit: cover; 
+    border-bottom: 1px solid var(--muted-blue);
+    display: block;
+}
+
+.project-info {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1; 
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+
+.project-card p {
+    color: var(--light-blue);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.feature-statement {
+    background-color: var(--accent-pink);
+    color: var(--bg-dark);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 310px;
+}
+
+.feature-statement p {
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.3; 
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    width: 100%;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.feature-quote {
+    background-color: transparent;
+    border: 2px dashed var(--muted-blue);
+    color: var(--light-blue);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 310px;
+}
+
+.feature-quote p {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.4;
+    font-weight: 500;
+    width: 100%;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        height: var(--header-phone-size);
+    }
+
+    nav a {
+        margin-left: 0;
+        margin: 0 0.5rem;
+        display: inline-block;
+    }
+
+    .portfolio-container {
+        padding-top: calc(var(--header-phone-size) + 2rem);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .portfolio-container h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .project-card {
+        min-height: 280px;
+    }
+
+    .project-image {
+        height: 150px;
+        min-height: 150px;
+    }
+
+    .feature-statement, .feature-quote {
+        display: none;
+    }
+}

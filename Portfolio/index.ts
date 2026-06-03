@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import path from "path";
 import {indexRouter} from "./routers/indexRouter";
 import { WIPRouter } from "./routers/WIPRouter";
+import { projectsRouter } from "./routers/projectsRouter";
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ app.set('views', path.join(__dirname, "views"));
 app.set("port", process.env.PORT || 3000);
 
 async function startServer() {
-    app.use("/WIP", await WIPRouter())
+    app.use("/projects",await projectsRouter());
     app.use("/", await indexRouter());
 
     app.use((req, res, next) => {
