@@ -22,7 +22,7 @@ async function startServer() {
     app.use("/", await indexRouter());
 
     app.use((req, res, next) => {
-        res.status(404).render('wip'); 
+        res.status(404).render('WIP'); 
     });
 }
 
