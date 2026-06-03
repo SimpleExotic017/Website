@@ -5,6 +5,8 @@
     --light-blue: #748CAB;
     --accent-pink: #FFDAE9;
     --text-light: #F4F6F9;
+    --header-size: 5rem;
+    --header-phone-size:8rem;
 }
 
 html {
@@ -32,6 +34,7 @@ header {
     border-bottom: 1px solid var(--muted-blue);
     position: fixed;
     top: 0;
+    height: var(--header-size);
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -67,6 +70,7 @@ footer {
         gap: 1rem;
         padding: 1.5rem 1rem;
         text-align: center;
+        height: var(--header-phone-size);
     }
 
     nav a {

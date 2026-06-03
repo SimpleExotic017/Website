@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <%- include("partials/general/default")%>
     <title>Work in Progress</title>
 </head>
 <style>
@@ -24,6 +24,7 @@
 
     /* Nieuwe wrapper om de WIP-kaart perfect te centreren tussen header en footer */
     .wip-main {
+        margin-top: var(--header-size);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -47,7 +48,6 @@
         font-size: 3.5rem;
         margin-bottom: 1rem;
         display: inline-block;
-        animation: float 3s ease-in-out infinite;
     }
 
     h1 {
@@ -91,6 +91,7 @@
 
     @media (max-width: 480px) {
         .wip-main {
+        margin-top: var(--header-phone-size);
             padding: 20px 15px;
         }
 
