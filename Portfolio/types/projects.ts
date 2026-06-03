@@ -3,6 +3,7 @@ export interface project{
     name:string,
     category:string,
     languages:string[],
-    description:string,
+    description:string[],
     gitURL:string
+    detailImageCount:number
 }

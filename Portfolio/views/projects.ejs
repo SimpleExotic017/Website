@@ -16,9 +16,10 @@
 <% 
 let multNumber = 2;
 let plusNumber = 3;
-let projectArrayId = 0;
+let projectArrayId = projects.length - 1;
 
 for (let i = 1; i <= 20; i++) {
+    let project = projects[projectArrayId];
     
     if (((multNumber * i) + plusNumber) % 5 <= 1) {
         
@@ -38,16 +39,24 @@ for (let i = 1; i <= 20; i++) {
             </div>
         <% }
         
-    } else { %>
-        <div class="project-card">
-            <img src="https://cataas.com/cat?unique_id=<%= i %>" alt="Project placeholder" class="project-image" loading="lazy">
-            
-            <div class="project-info">
-                <h3>Project <%= projectArrayId +1 %></h3>
-                <p>UI/UX Design & Development</p>
-            </div>
-        </div>
-    <% projectArrayId++;}
+    } else { 
+        // Veiligheidscheck: voer dit alleen uit als er daadwerkelijk nog een project in de array zit
+        if (project) { 
+            // Maak een nette URL van de projectnaam (bijv. "MyFirstStore" -> "myfirststore")
+            let projectSlug = project.name.toLowerCase().replace(/ /g, "-");
+        %>
+            <a href="/projects/<%= projectSlug %>" class="project-card-link">
+                <div class="project-card">
+                    <img src="/assets/project-images/<%=project.name%>.png" alt="<%=project.name%>" class="project-image" loading="lazy">
+                    
+                    <div class="project-info">
+                        <h3><%=project.name%></h3>
+                        <p><%=project.category%></p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    <% projectArrayId--; }
 } 
 %>
             </div>
