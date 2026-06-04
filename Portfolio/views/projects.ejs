@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include("partials/general/default")%>
     <link rel="stylesheet" href="/css/projects.css">
-    <title>Home</title>
+    <title>Projects</title>
 </head>
 <body>
     <%- include("partials/general/floatingbg")%>
@@ -40,9 +40,7 @@ for (let i = 1; i <= 20; i++) {
         <% }
         
     } else { 
-        // Veiligheidscheck: voer dit alleen uit als er daadwerkelijk nog een project in de array zit
         if (project) { 
-            // Maak een nette URL van de projectnaam (bijv. "MyFirstStore" -> "myfirststore")
             let projectSlug = project.name.toLowerCase().replace(/ /g, "-");
         %>
             <a href="/projects/<%= projectSlug %>" class="project-card-link">
