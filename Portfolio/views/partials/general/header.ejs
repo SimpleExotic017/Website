@@ -1,9 +1,9 @@
 <header>
-        <a href="/#home" class="logo">Matthias van Hogerhuis</a>
+        <a href="/" class="logo">Matthias van Hogerhuis</a>
         <nav>
-            <a href="/#home" class="active">Home</a>
-            <a href="/#projects">Projects</a>
-            <a href="/#aboutme">About me</a>
-            <a href="/#contact">Contact</a>
+            <a href="/" <%if(page == "home"){%>class="active"<%}%>>Home</a>
+            <a href="/projects" <%if(page == "projects"){%>class="active"<%}%>>Projects</a>
+            <a href="/aboutme" <%if(page == "aboutme"){%>class="active"<%}%>>About me</a>
+            <a href="/contact" <%if(page == "contact"){%>class="active"<%}%>>Contact</a>
         </nav>
 </header>

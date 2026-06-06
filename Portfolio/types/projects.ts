@@ -4,6 +4,7 @@ export interface project{
     category:string,
     languages:string[],
     description:string[],
-    gitURL:string
-    detailImageCount:number
+    gitURL:string,
+    detailImageCount:number,
+    notable:boolean
 }
