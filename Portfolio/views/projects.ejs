@@ -41,7 +41,7 @@ for (let i = 1; i <= 20; i++) {
         
     } else { 
         if (project) { 
-            let projectSlug = project.name.toLowerCase().replace(/ /g, "-");
+            let projectSlug = project.name;
         %>
             <a href="/projects/<%= projectSlug %>" class="project-card-link">
                 <div class="project-card">

@@ -4,6 +4,7 @@ import path from "path";
 import {indexRouter} from "./routers/indexRouter";
 import { WIPRouter } from "./routers/WIPRouter";
 import { projectsRouter } from "./routers/projectsRouter";
+import { seedDatabase } from "./Database";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.set('views', path.join(__dirname, "views"));
 app.set("port", process.env.PORT || 3000);
 
 async function startServer() {
+    await seedDatabase();
     app.use("/projects",await projectsRouter());
     app.use("/", await indexRouter());
 

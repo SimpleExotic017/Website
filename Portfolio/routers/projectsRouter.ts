@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { project } from "../types/projects";
+import { getProjectByName } from "../Database";
 export async function projectsRouter() {
 
     const router = Router();
@@ -182,6 +183,17 @@ export async function projectsRouter() {
             featureQuotes,
             featureStatements,
             projects
+        })
+    })
+    router.get("/:projectname",async (req,res)=>{
+        const projectname = req.params.projectname
+        try{
+            await getProjectByName(projectname);
+        }catch(error){
+            console.log(error)
+        }
+        res.render("projectDetails",{
+
         })
     })
 
