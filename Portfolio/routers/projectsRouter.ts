@@ -189,12 +189,14 @@ export async function projectsRouter() {
     })
     router.get("/:projectname",async (req,res)=>{
         const projectname = req.params.projectname
+        let project:project | undefined = undefined;
         try{
-            await getProjectByName(projectname);
+            project = await getProjectByName(projectname);
         }catch(error){
             console.log(error)
         }
         res.render("projectDetails",{
+            project,
             page:"projects"
         })
     })
