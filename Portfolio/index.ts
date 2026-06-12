@@ -1,11 +1,12 @@
 import express, { Express } from "express";
-import dotenv from "dotenv";
-import path from "path";
 import {indexRouter} from "./routers/indexRouter";
 import { projectsRouter } from "./routers/projectsRouter";
 // import { seedDatabase } from "./Database";
 
-dotenv.config();
+import path from 'path';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const app : Express = express();
 

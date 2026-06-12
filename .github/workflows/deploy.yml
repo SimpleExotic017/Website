@@ -37,7 +37,5 @@ jobs:
           
           echo "${{ secrets.ENV_FILE }}" > .env
           
-          echo "${{ secrets.ENV_FILE }}" > ./Portfolio/.env
-          
           docker compose pull web-app
           docker compose up -d --no-deps --force-recreate web-app
