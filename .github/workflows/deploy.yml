@@ -33,7 +33,7 @@ jobs:
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ~/mijn-website/Portfolio
-          echo "${{ secrets.ENV_FILE }}" > .env
+          cd ~/mijn-website
+          echo "${{ secrets.ENV_FILE }}" > Portfolio/.env
           docker compose pull web-app
           docker compose up -d --no-deps --force-recreate web-app
