@@ -35,7 +35,7 @@ jobs:
         script: |
           cd ~/mijn-website
           
-          echo ${{ secrets.API_KEY }} > ./Portfolio/.env
+          echo ${{ secrets.ENV_FILE }} > ./Portfolio/.env
           
           docker compose pull web-app
           docker compose up -d --no-deps --force-recreate web-app
