@@ -34,5 +34,8 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd ~/mijn-website
+          
+          echo ${{ secrets.ENV_FILE }} > .env
+          
           docker compose pull web-app
-          docker compose up -d --no-deps web-app
+          docker compose up -d --no-deps --force-recreate web-app
