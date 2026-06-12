@@ -19,14 +19,12 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
         tags: hellco7/website:latest
-
 
     - name: Deploy to VPS via SSH
       uses: appleboy/ssh-action@v1.0.3
@@ -36,5 +34,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd ~/mijn-website
+          echo "${{ secrets.ENV_FILE }}" > .env
           docker compose pull web-app
-          docker compose up -d --no-deps web-app
+          docker compose up -d --no-deps --force-recreate web-app
