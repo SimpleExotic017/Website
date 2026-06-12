@@ -1,5 +1,5 @@
 import express, { Express } from "express";
-import {indexRouter} from "./routers/indexRouter";
+import { indexRouter } from "./routers/indexRouter";
 import { projectsRouter } from "./routers/projectsRouter";
 // import { seedDatabase } from "./Database";
 
@@ -21,16 +21,16 @@ app.set("port", process.env.PORT || 3000);
 
 async function startServer() {
     // await seedDatabase();
-    app.use("/projects",await projectsRouter());
+    app.use("/projects", await projectsRouter());
     app.use("/", await indexRouter());
 
     app.use((req, res, next) => {
-        res.status(404).render('WIP',{page:"WIP"}); 
+        res.status(404).render('WIP', { page: "WIP" }); 
     });
 }
 
 startServer();
 
 app.listen(app.get("port"), () => {
-    console.log("Server started on http://localhost:" + app.get('port'));
+    console.log(`Server started internally on port ${app.get('port')}`);
 });
