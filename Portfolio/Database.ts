@@ -4,7 +4,7 @@ import { project } from "./types/projects";
 import path from 'path';
 import dotenv from 'dotenv';
 
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
 
 const mongo_uri = process.env.MONGODB_URI;
 
