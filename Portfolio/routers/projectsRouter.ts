@@ -123,7 +123,7 @@ export async function projectsRouter(language: string) {
         } catch (error) {
             console.log(error);
         }
-        res.render(language + "/notableProject", {
+        res.render(language.toUpperCase()+ "/notableProject", {
             project,
             page: "projects/notable/" + projectname
         });
@@ -137,7 +137,7 @@ export async function projectsRouter(language: string) {
         } catch (error) {
             console.log(error);
         }
-        res.render(language + "/projectDetails", {
+        res.render(language.toUpperCase()+ "/projectDetails", {
             project,
             page: "projects/" + projectname
         });
