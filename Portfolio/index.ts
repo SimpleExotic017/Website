@@ -41,7 +41,7 @@ async function startServer() {
 
     app.use((req, res, next) => {
         const lang = req.path.startsWith('/nl/') ? 'nl' : 'en';
-        res.status(404).render('WIP', { page: "WIP", lang: lang }); 
+        res.status(404).render('WIP', { page: "WIP", lang: lang.toUpperCase() }); 
     });
 }
 
