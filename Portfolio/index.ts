@@ -24,7 +24,7 @@ app.set("port", process.env.PORT || 3000);
 async function startServer() {
     // await seedDatabase();
     app.get("/", (req, res) => {
-        res.redirect("/en/");
+        res.redirect("/nl/");
     });
 
     //engels yippiieee
