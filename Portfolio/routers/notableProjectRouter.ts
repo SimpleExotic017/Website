@@ -13,7 +13,7 @@ export async function notableProjectsRouter(language: string) {
         } catch (error) {
             console.log(error);
         }
-        res.render(language.toUpperCase()+ "/notableProject", {
+        res.render(language.toUpperCase() + "/notableProject", {
             project,
             page: "notable-project/" + projectname
         });
