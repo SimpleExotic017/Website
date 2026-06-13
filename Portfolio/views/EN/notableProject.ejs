@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include("partials/general/default")%>
+    <%- include("../partials/default")%>
     <link rel="stylesheet" href="/css/projectdetails.css">
     <title><%= project.name %> - Details</title>
 </head>
 <body>
-    <%- include("partials/general/floatingbg")%>
-    <%- include("partials/general/header")%>
+    <%- include("../partials/floatingbg")%>
+    <%- include("partials/header")%>
 
     <main class="detail-container">
-        <a href="/projects" class="back-link">← Back to projects</a>
+        <a href="/en/#projects" class="back-link">← Back to projects</a>
 
         <div class="project-header-premium">
             <div class="title-meta-group">
@@ -79,12 +79,12 @@
                         View Source Code on GitHub ↗
                     </a>
             <% } %>
-            <a href="/projects" class="back-btn-premium">
-                ← Back to Projects
+            <a href="/en/#projects" class="back-btn-premium">
+                ← Return to home
             </a>
         </div>
     </main>
 
-    <%- include("partials/general/footer")%>
+    <%- include("partials/footer")%>
 </body>
 </html>

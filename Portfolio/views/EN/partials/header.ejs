@@ -1,0 +1,22 @@
+<header>
+        <a href="/" class="logo">Matthias van Hogerhuis</a>
+        <div class="nav-wrapper">
+            <nav>
+                <a href="/en/" <%if(page == ""){%>class="active"<%}%>>Home</a>
+                <a href="/en/projects" <%if(page == "projects"){%>class="active"<%}%>>Projects</a>
+                <a href="/en/aboutme" <%if(page == "aboutme"){%>class="active"<%}%>>About me</a>
+                <a href="/en/contact" <%if(page == "contact"){%>class="active"<%}%>>Contact</a>
+            </nav>
+            <div class="lang-dropdown">
+                <button class="lang-btn">
+                    🌐 'EN' ▾
+                </button>
+                <div class="dropdown-content">
+                    <div class="dropdown-content-inner">
+                        <a href="/en/<%=page%>"class="active-lang">English</a>
+                        <a href="/nl/<%=page%>">Nederlands</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>

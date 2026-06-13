@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("../partials/default")%>
+    <title>Licentie - Creative Commons</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .license-main {
+        margin-top: var(--header-size);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        padding: 40px 20px;
+    }
+
+    .license-container {
+        background-color: var(--bg-card);
+        padding: 2.5rem;
+        border-radius: 12px;
+        text-align: left;
+        max-width: 650px;
+        width: 100%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(116, 140, 171, 0.1);
+        z-index: 1;
+    }
+
+    .license-header {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .license-icon {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+    }
+
+    h1 {
+        color: var(--accent-pink);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        color: var(--accent-pink);
+        font-size: 1.3rem;
+        margin: 1.5rem 0 0.5rem 0;
+        font-weight: 600;
+    }
+
+    p, ul {
+        color: var(--light-blue);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    a.license-link {
+        color: var(--accent-pink);
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a.license-link:hover {
+        text-decoration: underline;
+    }
+
+    .btn-wrapper {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: transparent;
+        color: var(--accent-pink);
+        border: 2px solid var(--accent-pink);
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: var(--accent-pink);
+        color: var(--bg-dark);
+        box-shadow: 0 0 15px rgba(255, 218, 233, 0.4);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+        .license-main {
+            margin-top: var(--header-phone-size);
+            padding: 20px 15px;
+        }
+
+        .license-container {
+            padding: 1.75rem;
+        }
+
+        h1 { font-size: 1.6rem; }
+        h2 { font-size: 1.1rem; }
+        p, li { font-size: 0.95rem; }
+        .btn { width: 100%; }
+    }
+</style>
+<body>
+    <%- include("../partials/floatingbg")%>
+    <%- include("partials/header")%>
+    
+    <main class="license-main">
+        <div class="license-container">
+            <div class="license-header">
+                <div class="license-icon">🫱🏼‍🫲🏾</div>
+                <h1>Licentie & Auteursrecht</h1>
+                <p>Creative Commons Naamsvermelding-NietCommercieel-GelijkDelen 4.0 Internationaal</p>
+            </div>
+
+            <p>De inhoud op deze website (tekst, afbeeldingen en code, tenzij anders vermeld) is gelicentieerd onder een <strong>CC BY-NC-SA 4.0</strong> licentie. Dit betekent dat je mijn werk vrij mag delen en aanpassen voor niet-commerciële doeleinden, zolang je aan de volgende voorwaarden voldoet:</p>
+            
+            <h2>Gebruiksvoorwaarden:</h2>
+            <ul>
+                <li><strong>Naamsvermelding (BY):</strong> Je moet de maker vermelden, een link naar de licentie plaatsen en aangeven of er wijzigingen zijn aangebracht.</li>
+                <li><strong>NietCommercieel (NC):</strong> Je mag het materiaal niet gebruiken voor commerciële doeleinden of financieel gewin.</li>
+                <li><strong>GelijkDelen (SA):</strong> Als je het materiaal remixet, transformeert of erop voortbouwt, moet je jouw bijdragen verspreiden onder dezelfde licentie als het origineel.</li>
+            </ul>
+
+            <h2>Aanvullende Beperkingen:</h2>
+            <p>Je mag geen juridische voorwaarden of technologische maatregelen toepassen die anderen juridisch beperken om iets te doen wat de licentie toestaat. Elk gebruik buiten deze niet-commerciële voorwaarden vereist expliciete schriftelijke toestemming van de auteur.</p>
+
+            <p>Dit is een begrijpelijke samenvatting. Je kunt de volledige officiële juridische tekst rechtstreeks lezen op de <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl" target="_blank" rel="noopener noreferrer" class="license-link">Creative Commons website</a>.</p>
+
+            <div class="btn-wrapper">
+                <a href="/nl" class="btn">Terug naar home</a>
+            </div>
+        </div>
+    </main>
+
+    <%- include("partials/footer")%>
+</body>
+</html>

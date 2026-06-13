@@ -1,0 +1,105 @@
+<style>
+    .hero {
+    scroll-margin-top: 100vh;
+    max-width: 1300px;
+    margin: 15vh auto 9vh auto;
+    padding: 6rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    color: var(--accent-pink);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--light-blue);
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-pink);
+    color: var(--bg-dark);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s, opacity 0.3s;
+    max-width: fit-content;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--light-blue);
+    border: 2px solid var(--muted-blue);
+    margin-left: 1rem;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent-pink);
+    color: var(--accent-pink);
+    background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        margin: 10vh auto 4vh auto;
+        scroll-margin-top: 100vh;
+        padding: 4rem 5%;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin: 0 auto 2rem auto;
+    }
+
+    .hero div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .btn-outline {
+        margin-left: 0;
+    }
+}
+</style>
+<div class="hero" id="home">
+        <h1>Creatief design ontmoet <span>strakke code</span>.</h1>
+        <p>
+            Met een passie voor clean architecture en modern design ontwikkel ik schaalbare webapplicaties.<br>
+            Mijn code volgt een duidelijke structuur, waardoor systemen klaar zijn voor de toekomst.
+        </p>
+        <div>
+            <a href="#projects" class="btn">Uitgelichte Projecten</a>
+            <a href="#contact" class="btn btn-outline">Neem contact op</a>
+        </div>
+</div>

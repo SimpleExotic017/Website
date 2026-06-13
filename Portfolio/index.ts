@@ -1,6 +1,8 @@
 import express, { Express } from "express";
 import { indexRouter } from "./routers/indexRouter";
 import { projectsRouter } from "./routers/projectsRouter";
+import { licenseRouter } from "./routers/licenseRouter";
+import { notableProjectsRouter } from "./routers/notableProjectRouter";
 // import { seedDatabase } from "./Database";
 
 import path from 'path';
@@ -21,11 +23,25 @@ app.set("port", process.env.PORT || 3000);
 
 async function startServer() {
     // await seedDatabase();
-    app.use("/projects", await projectsRouter());
-    app.use("/", await indexRouter());
+    app.get("/", (req, res) => {
+        res.redirect("/en/");
+    });
+
+    //engels yippiieee
+    app.use("/en/notable-project", await notableProjectsRouter("en"))
+    app.use("/en/projects", await projectsRouter("en"));
+    app.use("/en/license", await licenseRouter("en"))
+    app.use("/en/", await indexRouter("en"));
+
+    //nederlands
+    app.use("/nl/notable-project", await notableProjectsRouter("nl"))
+    app.use("/nl/projects", await projectsRouter("nl"));
+    app.use("/nl/license", await licenseRouter("nl"))
+    app.use("/nl/", await indexRouter("nl"));
 
     app.use((req, res, next) => {
-        res.status(404).render('WIP', { page: "WIP" }); 
+        const lang = req.path.startsWith('/nl/') ? 'nl' : 'en';
+        res.status(404).render('WIP', { page: "WIP", lang: lang }); 
     });
 }
 
