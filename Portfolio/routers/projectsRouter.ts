@@ -107,7 +107,7 @@ export async function projectsRouter(language: string) {
         const featureStatements:string[] = content[activeLang].featureStatements;
         const projectArray: project[] | undefined = await getLast12Projects();
         
-        res.render(language + "/projects", {
+        res.render(language.toUpperCase()+ "/projects", {
             featureQuotes,
             featureStatements,
             projects: projectArray,

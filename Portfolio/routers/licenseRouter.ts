@@ -6,7 +6,7 @@ export async function licenseRouter(language:string) {
     const router = Router();
 
     router.get("/",async(req,res)=>{
-        res.render(language+"/license.ejs",{
+        res.render(language.toUpperCase()+"/license.ejs",{
             page:"license"
         })
     })
