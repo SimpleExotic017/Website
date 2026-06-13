@@ -119,7 +119,7 @@
 </style>
 <body>
     <%- include("partials/floatingbg")%>
-    <%- include(lang+"/partials/header")%>
+    <%- include(lang.ToUpperCase()+"/partials/header")%>
     
     <main class="wip-main">
         <div class="wip-container">
@@ -137,6 +137,6 @@
         </div>
     </main>
 
-    <%- include(lang+"/partials/footer")%>
+    <%- include(lang.ToUpperCase()+"/partials/footer")%>
 </body>
 </html>
