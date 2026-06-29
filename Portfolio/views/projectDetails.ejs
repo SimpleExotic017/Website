@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("partials/default") %>
+    <link rel="stylesheet" href="/css/projectdetails.css">
+    <title>
+        <%= project.name %> - <% if (lang === 'nl') { %>Details<% } else if (lang === 'en') { %>Details<% } else { %><%- include("partials/handleLanguageUnknown") %><% } %>
+    </title>
+</head>
+<body>
+    <% if (lang !== 'nl' && lang !== 'en') { %>
+        <%- include("partials/handleLanguageUnknown") %>
+    <% } else { %>
+        <%- include("partials/floatingbg") %>
+        <%- include("partials/header") %>
+
+        <main class="detail-container">
+            <a href="/<%= lang %>/projects" class="back-link">
+                <% if (lang === 'nl') { %>
+                    ← Terug naar projecten
+                <% } else if (lang === 'en') { %>
+                    ← Back to projects
+                <% } else { %>
+                    <%- include("partials/handleLanguageUnknown") %>
+                <% } %>
+            </a>
+
+            <div class="project-header-premium">
+                <div class="title-meta-group">
+                    <h1 class="gradient-title"><%= project.name %></h1>
+
+                    <div class="header-top-meta">
+                        <% if (project.notable) { %>
+                            <div class="notable-badge">
+                                <span class="pulse-star">★</span> <%= project.category %>
+                            </div>
+                        <% } else { %>
+                            <div class="standard-badge">
+                                <span class="category-indicator"></span>
+                                <span class="category-tag"><%= project.category %></span>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+                
+                <div class="tech-stack-container">
+                    <span class="tech-label">
+                        <% if (lang === 'nl') { %>
+                            Gebruikte technologieën:
+                        <% } else if (lang === 'en') { %>
+                            Technologies used:
+                        <% } else { %>
+                            <%- include("partials/handleLanguageUnknown") %>
+                        <% } %>
+                    </span>
+                    <div class="tech-stack">
+                        <% project.languages.forEach(function(langTag) { %>
+                            <span class="lang-tag"><%= langTag %></span>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-cover">
+                <img src="/assets/project-images/<%= project.name %>.png" alt="<%= project.name %> Cover">
+            </div>
+
+            <section class="project-walkthrough">
+                <% 
+                project.description.slice(1).forEach(function(paragraph, sliceIndex) { 
+                    let i = sliceIndex + 1; 
+                    let imageIndex = i; 
+                    let hasImage = project.detailImageCount && imageIndex <= project.detailImageCount;
+                    let isLastStep = (sliceIndex === project.description.slice(1).length - 1);
+                %>
+                    <div class="walkthrough-step <%= hasImage ? ((sliceIndex % 2 === 0) ? 'normal-row' : 'reverse-row') : 'full-width-row' %> <%= isLastStep && project.gitURL ? 'last-step-with-git' : '' %>">
+                        
+                        <div class="step-text">
+                            <span class="step-number">0<%= sliceIndex + 1 %></span>
+                            <p><%= paragraph %></p>
+                        </div>
+
+                        <% if (hasImage) { %>
+                            <div class="step-image-wrapper">
+                                <img src="/assets/project-detail-images/<%= project.name %>/<%= imageIndex %>.png" alt="<%= project.name %> Detail Screenshot <%= imageIndex %>" loading="lazy">
+                            </div>
+                        <% } %>
+
+                    </div>
+                <% }); %>
+            </section>
+
+            <div class="bottom-back-container">
+                <% if (project.gitURL) { %>
+                    <a href="<%= project.gitURL %>" target="_blank" rel="noopener noreferrer" class="github-btn">
+                        <% if (lang === 'nl') { %>
+                            Bekijk broncode op GitHub ↗
+                        <% } else if (lang === 'en') { %>
+                            View Source Code on GitHub ↗
+                        <% } else { %>
+                            <%- include("partials/handleLanguageUnknown") %>
+                        <% } %>
+                    </a>
+                <% } %>
+                <a href="/<%= lang %>/projects" class="back-btn-premium">
+                    <% if (lang === 'nl') { %>
+                        ← Terug naar Projecten
+                    <% } else if (lang === 'en') { %>
+                        ← Return to projects
+                    <% } else { %>
+                        <%- include("partials/handleLanguageUnknown") %>
+                    <% } %>
+                </a>
+            </div>
+        </main>
+
+        <%- include("partials/footer") %>
+    <% } %>
+</body>
+</html>

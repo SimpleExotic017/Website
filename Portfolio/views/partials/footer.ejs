@@ -1,0 +1,32 @@
+<style>
+    footer {
+        text-align: center;
+        padding: 4rem 0;
+        margin-top: 4rem;
+        border-top: 1px solid var(--muted-blue);
+        color: var(--muted-blue);
+        font-size: 0.9rem;
+    }
+
+    /* Mobiele styling voor de footer */
+    @media screen and (max-width: 768px) {
+        footer {
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+    }
+</style>
+
+<footer>
+    <p style="font-size: 0.85rem; margin-top: 1.5rem; color: var(--light-blue); opacity: 0.8; text-align: center;">
+        <% if (lang === 'nl') { %>
+            Inhoud beschikbaar onder 
+            <a href="/nl/license" style="color: var(--accent-pink); text-decoration: none;">CC BY-NC-SA 4.0</a>
+        <% } else if (lang === 'en') { %>
+            Content available under 
+            <a href="/en/license" style="color: var(--accent-pink); text-decoration: none;">CC BY-NC-SA 4.0</a>
+        <% } else { %>
+            <%- include("/logic/handleLanguageUnknown")%>
+        <%}%>
+    </p>
+</footer>
