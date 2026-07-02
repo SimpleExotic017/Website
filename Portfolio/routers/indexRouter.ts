@@ -6,9 +6,10 @@ export async function indexRouter(language:string) {
     const router = Router();
     const projects:project[] | undefined = await get3NotableProjects();
     router.get("/", (req, res) => {
-        res.render(language.toUpperCase()+"/index", {
+        res.render("index", {
             projects,
             page:"",
+            lang:language.toLowerCase()
     })})
 
     return router;

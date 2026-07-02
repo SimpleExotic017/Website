@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include("partials/default")%>
-    <title><%= lang === 'nl' ? 'In Aanbouw' : 'Work in Progress' %></title>
+    <%- include("partials/default") %>
+    <title>
+        <% if (lang === 'nl') { %>In Aanbouw<% } else if (lang === 'en') { %>Work in Progress<% } else { %><%- include("partials/logic/handleLanguageUnknown") %><% } %>
+    </title>
 </head>
 <style>
     * {
@@ -118,25 +120,46 @@
     }
 </style>
 <body>
-    <%- include("partials/floatingbg")%>
-    <%- include(lang+"/partials/header")%>
-    
-    <main class="wip-main">
-        <div class="wip-container">
-            <div class="hammer">🛠️</div>
-            <h1><%= lang === 'nl' ? 'In Aanbouw' : 'Under Construction' %></h1>
-            <p>
-                <%= lang === 'nl' 
-                    ? 'Oei! Het schijnt dat je hier te vroeg bent, deze pagina is nog in aanbouw.' 
-                    : 'Oh no! Seems you got here early, this page is still under construction.' 
-                %>
-            </p>
-            <a href="/<%= lang %>/" class="btn">
-                <%= lang === 'nl' ? 'Terug naar home' : 'Return to home' %>
-            </a>
-        </div>
-    </main>
+    <% if (lang !== 'nl' && lang !== 'en') { %>
+        <%- include("partials/logic/handleLanguageUnknown") %>
+    <% } else { %>
+        <%- include("partials/floatingbg") %>
+        <%- include("partials/header") %>
+        
+        <main class="wip-main">
+            <div class="wip-container">
+                <div class="hammer">🛠️</div>
+                <h1>
+                    <% if (lang === 'nl') { %>
+                        In Aanbouw
+                    <% } else if (lang === 'en') { %>
+                        Under Construction
+                    <% } else { %>
+                        <%- include("partials/logic/handleLanguageUnknown") %>
+                    <% } %>
+                </h1>
+                <p>
+                    <% if (lang === 'nl') { %>
+                        Oei! Het schijnt dat je hier te vroeg bent, deze pagina is nog in aanbouw.
+                    <% } else if (lang === 'en') { %>
+                        Oh no! Seems you got here early, this page is still under construction.
+                    <% } else { %>
+                        <%- include("partials/logic/handleLanguageUnknown") %>
+                    <% } %>
+                </p>
+                <a href="/<%= lang %>/" class="btn">
+                    <% if (lang === 'nl') { %>
+                        Terug naar home
+                    <% } else if (lang === 'en') { %>
+                        Return to home
+                    <% } else { %>
+                        <%- include("partials/logic/handleLanguageUnknown") %>
+                    <% } %>
+                </a>
+            </div>
+        </main>
 
-    <%- include(lang+"/partials/footer")%>
+        <%- include("partials/footer") %>
+    <% } %>
 </body>
 </html>

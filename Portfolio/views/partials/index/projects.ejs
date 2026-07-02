@@ -111,27 +111,57 @@
     }
 }
 </style>
-<section class="projects" id="projects">
+
+<% if (lang === 'nl') { %>
+    <section class="projects" id="projects">
         <h2>Uitgelichte projecten</h2>
         <div class="project-grid">
-            <%if (projects.length > 0){%>
-                <%for(let project of projects){%>
+            <% if (projects.length > 0){ %>
+                <% for(let project of projects){ %>
                     <div class="card">
-                        <span class="card-tag"><%=project.category%></span>
-                        <h3><%=project.name%></h3>
+                        <span class="card-tag"><%= project.category %></span>
+                        <h3><%= project.name %></h3>
                         <div class="card-languages">
-                            <%for(let language of project.languages){%>
-                                <span><%=language%></span>    
-                            <%}%>
+                            <% for(let language of project.languages){ %>
+                                <span><%= language %></span>    
+                            <% } %>
                         </div>
-                        <p><%=project.description[0]%></p>
-                        <a href="/nl/notable-project/<%=project.name%>" style="color: var(--accent-pink); text-decoration: none; font-size: 0.9rem;">Lees Meer &rarr;</a>
+                        <p><%= project.description[0] %></p>
+                        <a href="/nl/notable-project/<%= project.name %>" style="color: var(--accent-pink); text-decoration: none; font-size: 0.9rem;">Lees Meer &rarr;</a>
                     </div>
-                <%}%>
-            <%}%>
+                <% } %>
+            <% } %>
         </div>
 
         <div class="projects-action">
             <a href="/nl/projects" class="btn btn-outline">Bekijk Meer Projecten &rarr;</a>
         </div>
-</section>
+    </section>
+<% } else if (lang === 'en') { %>
+    <section class="projects" id="projects">
+        <h2>Notable projects</h2>
+        <div class="project-grid">
+            <% if (projects.length > 0){ %>
+                <% for(let project of projects){ %>
+                    <div class="card">
+                        <span class="card-tag"><%= project.category %></span>
+                        <h3><%= project.name %></h3>
+                        <div class="card-languages">
+                            <% for(let language of project.languages){ %>
+                                <span><%= language %></span>    
+                            <% } %>
+                        </div>
+                        <p><%= project.description[0] %></p>
+                        <a href="/en/notable-project/<%= project.name %>" style="color: var(--accent-pink); text-decoration: none; font-size: 0.9rem;">Read More &rarr;</a>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+
+        <div class="projects-action">
+            <a href="/en/projects" class="btn btn-outline">View More Projects &rarr;</a>
+        </div>
+    </section>
+<% } else { %>
+    <%- include("partials/logic/handleLanguageUnknown") %>
+<% } %>

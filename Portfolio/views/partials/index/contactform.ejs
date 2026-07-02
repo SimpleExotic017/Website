@@ -86,12 +86,9 @@
     .contact-form select:-webkit-autofill:hover,
     .contact-form select:-webkit-autofill:focus {
         border: 1px solid rgba(255, 255, 255, 0.2);
-        
         -webkit-box-shadow: 0 0 0px 1000px transparent inset;
         box-shadow: 0 0 0px 1000px transparent inset;
-        
         transition: background-color 500000s ease-in-out 0s;
-        
         -webkit-text-fill-color: #fff !important;
     }
 
@@ -155,40 +152,82 @@
     }
 </style>
 
-<section class="contact" id="contact">
-    <h2>Neem Contact Op</h2>
-    <div class="contact-container">
-        <div class="contact-info">
-            <h3>Contactgegevens</h3>
-            <p>Stuur gerust een bericht! Je kunt rechtstreeks via het formulier contact opnemen of handmatig een e-mail sturen.</p>
-            <p class="email-display">
-                <strong>E-mail:</strong> <a href="mailto:matthiasvanhogerhuis017@gmail.com">matthiasvanhogerhuis017@gmail.com</a>
-            </p>
+<% if (lang === 'nl') { %>
+    <section class="contact" id="contact">
+        <h2>Neem Contact Op</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contactgegevens</h3>
+                <p>Stuur gerust een bericht! Je kunt rechtstreeks via het formulier contact opnemen of handmatig een e-mail sturen.</p>
+                <p class="email-display">
+                    <strong>E-mail:</strong> <a href="mailto:matthiasvanhogerhuis017@gmail.com">matthiasvanhogerhuis017@gmail.com</a>
+                </p>
+            </div>
+
+            <form action="/nl/send-email" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="subject">Reden voor contact:</label>
+                    <select name="subject" id="subject" required>
+                        <option value="" disabled selected>Kies een optie...</option>
+                        <option value="Project Samenwerking">Project Samenwerking</option>
+                        <option value="Inhuur / Vacature">Inhuur / Vacature</option>
+                        <option value="Vraag / Feedback">Vraag / Feedback</option>
+                        <option value="Anders">Anders</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Jouw E-mailadres:</label>
+                    <input type="email" name="email" id="email" placeholder="voorbeeld@domein.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Bericht:</label>
+                    <textarea name="message" id="message" rows="6" placeholder="Schrijf hier je bericht..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Bericht Verzenden</button>
+            </form>
         </div>
-
-        <form action="/nl/send-email" method="POST" class="contact-form">
-            <div class="form-group">
-                <label for="subject">Reden voor contact:</label>
-                <select name="subject" id="subject" required>
-                    <option value="" disabled selected>Kies een optie...</option>
-                    <option value="Project Samenwerking">Project Samenwerking</option>
-                    <option value="Inhuur / Vacature">Inhuur / Vacature</option>
-                    <option value="Vraag / Feedback">Vraag / Feedback</option>
-                    <option value="Anders">Anders</option>
-                </select>
+    </section>
+<% } else if (lang === 'en') { %>
+    <section class="contact" id="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>Feel free to reach out! You can send a message directly through the form, or drop an email manually.</p>
+                <p class="email-display">
+                    <strong>Email:</strong> <a href="mailto:matthiasvanhogerhuis017@gmail.com">matthiasvanhogerhuis017@gmail.com</a>
+                </p>
             </div>
 
-            <div class="form-group">
-                <label for="email">Jouw E-mailadres:</label>
-                <input type="email" name="email" id="email" placeholder="voorbeeld@domein.com" required>
-            </div>
+            <form action="/en/send-email" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="subject">Reason for contacting:</label>
+                    <select name="subject" id="subject" required>
+                        <option value="" disabled selected>Select an option...</option>
+                        <option value="Project Collaboration">Project Collaboration</option>
+                        <option value="Job Opportunity">Job Opportunity</option>
+                        <option value="Question / Feedback">Question / Feedback</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="message">Bericht:</label>
-                <textarea name="message" id="message" rows="6" placeholder="Schrijf hier je bericht..." required></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" name="email" id="email" placeholder="example@domain.com" required>
+                </div>
 
-            <button type="submit" class="btn">Bericht Verzenden</button>
-        </form>
-    </div>
-</section>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" rows="6" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+<% } else { %>
+    <%- include("partials/logic/handleLanguageUnknown") %>
+<% } %>
