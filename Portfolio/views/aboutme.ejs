@@ -1,0 +1,432 @@
+<style>
+    .about-page-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: calc(var(--header-size) + 4rem) 5% 10vh 5%;
+    }
+
+    .about-hero {
+        margin-bottom: 6rem;
+    }
+
+    .about-hero-container {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        flex-wrap: wrap;
+    }
+
+    .about-visual {
+        flex: 1;
+        min-width: 280px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-frame {
+        width: 100%;
+        max-width: 320px;
+        aspect-ratio: 1 / 1;
+        border-radius: 12px;
+        border: 1px solid var(--muted-blue);
+        background-color: var(--bg-card);
+        padding: 1rem;
+    }
+
+    .profile-placeholder {
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-dark);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed var(--muted-blue);
+    }
+
+    .profile-placeholder span {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 2rem;
+        color: var(--accent-pink);
+        font-weight: bold;
+    }
+
+    .about-intro-text {
+        flex: 1.8;
+        min-width: 300px;
+    }
+
+    .about-intro-text h1 {
+        font-size: 3.5rem;
+        color: var(--text-light);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+    }
+
+    .about-intro-text h2 {
+        font-size: 1.8rem;
+        color: var(--accent-pink);
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+
+    .about-intro-text .lead {
+        font-size: 1.2rem;
+        color: var(--light-blue);
+        line-height: 1.6;
+    }
+
+    .about-details {
+        margin-bottom: 6rem;
+        border-top: 1px solid var(--muted-blue);
+        padding-top: 4rem;
+    }
+
+    .details-grid {
+        display: flex;
+        gap: 4rem;
+        flex-wrap: wrap;
+    }
+
+    .details-block {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .details-block h3 {
+        font-size: 1.6rem;
+        color: var(--text-light);
+        margin-bottom: 1.2rem;
+        border-left: 3px solid var(--accent-pink);
+        padding-left: 12px;
+    }
+
+    .details-block p {
+        color: var(--light-blue);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+    }
+
+    .about-tech {
+        margin-bottom: 6rem;
+        background-color: var(--bg-card);
+        padding: 3.5rem 5%;
+        border-radius: 12px;
+        border: 1px solid rgba(116, 140, 171, 0.1);
+    }
+
+    .about-tech h3 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .tech-sub {
+        text-align: center;
+        color: var(--light-blue);
+        margin-bottom: 3rem;
+    }
+
+    .tech-categories {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .tech-card {
+        flex: 1;
+        min-width: 250px;
+        background-color: var(--bg-dark);
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid var(--muted-blue);
+    }
+
+    .tech-card h4 {
+        color: var(--accent-pink);
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(116, 140, 171, 0.2);
+        padding-bottom: 0.5rem;
+    }
+
+    .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+    }
+
+    .skills-grid span {
+        font-size: 0.85rem;
+        background-color: var(--bg-card);
+        color: var(--text-light);
+        padding: 0.4rem 1rem;
+        border-radius: 20px; 
+        border: 1px solid var(--muted-blue);
+        font-weight: 500;
+        transition: border-color 0.2s, color 0.2s;
+    }
+
+    .skills-grid span:hover {
+        border-color: var(--accent-pink);
+        color: var(--accent-pink);
+    }
+
+    .about-cta {
+        text-align: center;
+        padding: 4rem 0 2rem 0;
+        border-top: 1px solid var(--muted-blue);
+    }
+
+    .about-cta h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .about-cta p {
+        color: var(--light-blue);
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: var(--accent-pink);
+        color: var(--bg-dark);
+        padding: 0.8rem 2rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s, opacity 0.3s;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+
+    @media screen and (max-width: 768px) {
+        .about-page-main {
+            padding-top: calc(var(--header-phone-size) + 2rem);
+        }
+
+        .about-hero-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 2rem;
+        }
+
+        .about-intro-text h1 {
+            font-size: 2.5rem;
+        }
+
+        .about-intro-text h2 {
+            font-size: 1.4rem;
+        }
+
+        .about-hero, .about-details, .about-tech {
+            margin-bottom: 4rem;
+        }
+
+        .details-grid, .tech-categories {
+            gap: 2rem;
+        }
+    }
+</style>
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include("partials/default") %>
+    <title>About Me - Matthias</title>
+</head>
+<body>
+    <%- include("partials/floatingbg") %>
+    <%- include("partials/header") %>
+
+    <main class="about-page-main">
+        <% if (lang === 'nl') { %>
+            <section class="about-hero">
+                <div class="about-hero-container">
+                    <div class="about-visual">
+                        <div class="profile-frame">
+                            <div class="profile-placeholder">
+                                <span>&lt;MvH /&gt;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-intro-text">
+                        <h1>Matthias</h1>
+                        <h2>Full-Stack Developer</h2>
+                        <p class="lead">
+                            Gedreven door logica, geleid door clean code en gefocust op het bouwen van schaalbare, toekomstbestendige applicaties.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-details">
+                <div class="details-grid">
+                    <div class="details-block">
+                        <h3>Wie ik ben</h3>
+                        <p>
+                            Mijn passie voor softwareontwikkeling ligt op het snijvlak van creatief front-end design en ijzersterke back-end architectuur. Wat begon als nieuwsgierigheid naar hoe complexe systemen werken, is uitgegroeid tot een full-stack loopbaan waarin ik dagelijks code transformeer naar efficiënte digitale oplossingen.
+                        </p>
+                        <p>
+                            Ik ben analytisch ingesteld, resultaatgericht en pak complexe technische vraagstukken met veel enthousiasme aan. Stilzitten is niets voor mij; ik blijf mezelf continu uitdagen met nieuwe technologieën en methodologieën om mijn workflow te optimaliseren.
+                        </p>
+                    </div>
+                    <div class="details-block">
+                        <h3>Mijn Filosofie</h3>
+                        <p>
+                            Ik geloof dat software niet alleen functioneel moet zijn, maar onder de motorkap ook naadloos moet presteren. Goede code is in mijn ogen <em>clean</em>, gedocumenteerd en modulair opgebouwd volgens modern design patterns. 
+                        </p>
+                        <p>
+                            Of het nu gaat om het optimaliseren van een database-index in <strong>C# (.NET)</strong>, of het schrijven van een type-safe front-end met <strong>TypeScript</strong>; de architectuur moet kloppen zodat een applicatie moeiteloos kan meeschaal met de behoeften van de toekomst.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-tech">
+                <h3>Technische Expertise</h3>
+                <p class="tech-sub">De tools, talen en concepten waar ik dagelijks mee werk:</p>
+                <div class="tech-categories">
+                    <div class="tech-card">
+                        <h4>Back-End & Data</h4>
+                        <div class="skills-grid">
+                            <span>C# / .NET</span>
+                            <span>Node.js / Express.js</span>
+                            <span>Relational SQL</span>
+                            <span>MongoDB</span>
+                            <span>JWT Authentication</span>
+                            <span>Clean Architecture</span>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <h4>Front-End & Design</h4>
+                        <div class="skills-grid">
+                            <span>TypeScript / JavaScript</span>
+                            <span>Semantic HTML5</span>
+                            <span>CSS3 & Responsive UI/UX</span>
+                            <span>Component-Based Design</span>
+                            <span>SoC (Separation of Concerns)</span>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <h4>DevOps & Methoden</h4>
+                        <div class="skills-grid">
+                            <span>Git & GitHub Actions</span>
+                            <span>CI/CD Pipelines</span>
+                            <span>Unit Testing</span>
+                            <span>OOP / SOLID Patterns</span>
+                            <span>DRY & KISS Principes</span>
+                            <span>Agile / Scrum</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-cta">
+                <h3>Een project in gedachten?</h3>
+                <p>Ik sta altijd open voor nieuwe uitdagingen, samenwerkingen of een goed gesprek over code.</p>
+                <a href="/<%=lang%>/#contact" class="btn">Neem contact op</a>
+            </section>
+
+        <% } else if (lang === 'en') { %>
+            <section class="about-hero">
+                <div class="about-hero-container">
+                    <div class="about-visual">
+                        <div class="profile-frame">
+                            <div class="profile-placeholder">
+                                <span>&lt;MvH /&gt;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-intro-text">
+                        <h1>Matthias</h1>
+                        <h2>Full-Stack Developer</h2>
+                        <p class="lead">
+                            Driven by logic, guided by clean code, and focused on building scalable, future-proof applications.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-details">
+                <div class="details-grid">
+                    <div class="details-block">
+                        <h3>Who I Am</h3>
+                        <p>
+                            My passion for software development lies at the intersection of creative front-end design and rock-solid back-end architecture. What started as curiosity about how complex systems work has evolved into a full-stack journey where I transform complex concepts into efficient digital solutions daily.
+                        </p>
+                        <p>
+                            I am analytically driven, result-oriented, and tackle complex technical challenges with great enthusiasm. I constantly push myself to learn new technologies and methodologies to optimize my workflow.
+                        </p>
+                    </div>
+                    <div class="details-block">
+                        <h3>My Philosophy</h3>
+                        <p>
+                            I believe software should not only be functional but also perform seamlessly under the hood. In my view, good code is <em>clean</em>, well-documented, and modularly built according to modern design patterns.
+                        </p>
+                        <p>
+                            Whether it's optimizing a database index in <strong>C# (.NET)</strong> or writing type-safe front-end logic with <strong>TypeScript</strong>; the architecture must be solid so that an application can scale effortlessly.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-tech">
+                <h3>Technical Expertise</h3>
+                <p class="tech-sub">The tools, languages, and concepts I use daily:</p>
+                <div class="tech-categories">
+                    <div class="tech-card">
+                        <h4>Back-End & Data</h4>
+                        <div class="skills-grid">
+                            <span>C# / .NET</span>
+                            <span>Node.js / Express.js</span>
+                            <span>Relational SQL</span>
+                            <span>MongoDB</span>
+                            <span>JWT Authentication</span>
+                            <span>Clean Architecture</span>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <h4>Front-End & Design</h4>
+                        <div class="skills-grid">
+                            <span>TypeScript / JavaScript</span>
+                            <span>Semantic HTML5</span>
+                            <span>CSS3 & Responsive UI/UX</span>
+                            <span>Component-Based Design</span>
+                            <span>SoC (Separation of Concerns)</span>
+                        </div>
+                    </div>
+                    <div class="tech-card">
+                        <h4>DevOps & Methods</h4>
+                        <div class="skills-grid">
+                            <span>Git & GitHub Actions</span>
+                            <span>CI/CD Pipelines</span>
+                            <span>Unit Testing</span>
+                            <span>OOP / SOLID Patterns</span>
+                            <span>DRY & KISS Principles</span>
+                            <span>Agile / Scrum</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-cta">
+                <h3>Have a project in mind?</h3>
+                <p>I'm always open to new challenges, collaborations, or a good conversation about code.</p>
+                <a href="/<%=lang%>/#contact" class="btn">Get in touch</a>
+            </section>
+        <% } else { %>
+            <%- include("partials/logic/handleLanguageUnknown") %>
+        <% } %>
+    </main>
+
+    <%- include("partials/footer") %>
+</body>
+</html>

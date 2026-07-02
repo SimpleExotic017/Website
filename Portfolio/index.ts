@@ -7,6 +7,7 @@ import { notableProjectsRouter } from "./routers/notableProjectRouter";
 
 import path from 'path';
 import dotenv from 'dotenv';
+import { aboutmeRouter } from "./routers/aboutmeRouter";
 
 dotenv.config();
 
@@ -26,13 +27,13 @@ async function startServer() {
         res.redirect("/nl/");
     });
 
-    //supported languages
-    const languages = ["nl", "en"];
-
+    const languages : string[] = ["nl","en"]
+    
     for (const lang of languages) {
         app.use(`/${lang}/notable-project`, await notableProjectsRouter(lang));
         app.use(`/${lang}/projects`,        await projectsRouter(lang));
         app.use(`/${lang}/license`,         await licenseRouter(lang));
+        app.use(`/${lang}/aboutme`,         await aboutmeRouter(lang));
         app.use(`/${lang}/`,                await indexRouter(lang));
     }
 
