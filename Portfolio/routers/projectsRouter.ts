@@ -107,11 +107,12 @@ export async function projectsRouter(language: string) {
         const featureStatements:string[] = content[activeLang].featureStatements;
         const projectArray: project[] | undefined = await getLast12Projects();
         
-        res.render(language.toUpperCase()+ "/projects", {
+        res.render("projects", {
             featureQuotes,
             featureStatements,
             projects: projectArray,
-            page: "projects"
+            page: "projects",
+            lang:language.toLowerCase()
         });
     });
 
@@ -123,9 +124,10 @@ export async function projectsRouter(language: string) {
         } catch (error) {
             console.log(error);
         }
-        res.render(language.toUpperCase()+ "/notableProject", {
+        res.render("notableProject", {
             project,
-            page: "projects/notable/" + projectname
+            page: "projects/notable/" + projectname,
+            lang:language.toLowerCase()
         });
     });
 
@@ -137,9 +139,10 @@ export async function projectsRouter(language: string) {
         } catch (error) {
             console.log(error);
         }
-        res.render(language.toUpperCase()+ "/projectDetails", {
+        res.render("projectDetails", {
             project,
-            page: "projects/" + projectname
+            page: "projects/" + projectname,
+            lang:language.toLowerCase()
         });
     });
 
