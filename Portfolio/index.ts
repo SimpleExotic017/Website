@@ -22,26 +22,23 @@ app.set('views', path.join(__dirname, "views"));
 app.set("port", process.env.PORT || 3000);
 
 async function startServer() {
-    // await seedDatabase();
     app.get("/", (req, res) => {
         res.redirect("/nl/");
     });
 
-    //engels yippiieee
-    app.use("/en/notable-project", await notableProjectsRouter("en"))
-    app.use("/en/projects", await projectsRouter("en"));
-    app.use("/en/license", await licenseRouter("en"))
-    app.use("/en/", await indexRouter("en"));
+    //supported languages
+    const languages = ["nl", "en"];
 
-    //nederlands
-    app.use("/nl/notable-project", await notableProjectsRouter("nl"))
-    app.use("/nl/projects", await projectsRouter("nl"));
-    app.use("/nl/license", await licenseRouter("nl"))
-    app.use("/nl/", await indexRouter("nl"));
+    for (const lang of languages) {
+        app.use(`/${lang}/notable-project`, await notableProjectsRouter(lang));
+        app.use(`/${lang}/projects`,        await projectsRouter(lang));
+        app.use(`/${lang}/license`,         await licenseRouter(lang));
+        app.use(`/${lang}/`,                await indexRouter(lang));
+    }
 
     app.use((req, res, next) => {
         const lang = req.path.startsWith('/nl/') ? 'nl' : 'en';
-        res.status(404).render('WIP', { page: "WIP", lang: lang.toLocaleLowerCase() }); 
+        res.status(404).render('WIP', { page: "WIP", lang: lang.toLowerCase() }); 
     });
 }
 
